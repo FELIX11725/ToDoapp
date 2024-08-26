@@ -18,6 +18,7 @@ include_once 'header.php';
     <?php
     if (isset($_GET['add']) && $_GET['add'] == 'success') {
         echo "<p class='success'>Task added successfully!</p>";
+    
     }
     ?>
     
@@ -31,6 +32,14 @@ include_once 'header.php';
 
             <label for="task_description">Task Description</label>
             <textarea id="task_description" name="task_description" required></textarea>
+
+            
+            <label for="status">Task Status</label>
+            <select name="status" id="status">
+               <option value="pending">Pending</option>
+               <option value="completed">Completed</option>
+            </select>
+             
 
             <label for="due_date">Due Date</label>
             <input type="date" id="due_date" name="due_date" required>

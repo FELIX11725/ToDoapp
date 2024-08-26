@@ -34,7 +34,7 @@ include_once 'header.php';
         } else {
 
             // Bind the user ID parameter
-            mysqli_stmt_bind_param($stmt, "i", $userId);
+            mysqli_stmt_bind_param($stmt, "s", $userId);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
@@ -43,9 +43,9 @@ include_once 'header.php';
                     echo "<li>";
                     echo "<h3>" . htmlspecialchars($row['task_name']) . "</h3>";
                     echo "<p>" . htmlspecialchars($row['task_description']) . "</p>";
-                    echo "<p><small>Due: " . htmlspecialchars($row['due_date']) . "</small></p>";
-                    echo "<a href='edit_task.php?id=" . $row['id'] . "' class='btn'>Edit</a>";
-                    echo "<a href='delete_task.php?id=" . $row['id'] . "' class='btn'>Delete</a>";
+                    echo "<p><small>Due: " . htmlspecialchars($row['created_at']) . "</small></p>";
+                    //echo "<a href='edit_task.php?id=" . $row['id'] . "' class='btn'>Edit</a>";
+                    //echo "<a href='delete_task.php?id=" . $row['id'] . "' class='btn'>Delete</a>";
                     echo "</li>";
                 }
 
