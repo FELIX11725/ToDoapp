@@ -13,13 +13,19 @@ if (isset($_POST['submit'])) {
     if (empty($taskName) || empty($taskDescription) || empty($status) || empty($due_date)) {
         header("Location: ../dashboard.php?error=emptyfields");
         exit();
+
+
     } else {
         // Update the SQL query to exclude userId
         $sql = "INSERT INTO tasks (task_name, task_description,status,due_date) VALUES (?,?,?,?)";
         $stmt = mysqli_stmt_init($conn);
+
+
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../dashboard.php?error=sqlerror");
             exit();
+
+            
         } else {
             
             mysqli_stmt_bind_param($stmt, "ssss", $taskName, $taskDescription,$status,$due_date);
@@ -32,4 +38,5 @@ if (isset($_POST['submit'])) {
     header("Location: ../dashboard.php");
     exit();
 }
+
 ?>
