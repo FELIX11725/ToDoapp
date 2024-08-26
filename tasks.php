@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["userId"])) {
+if (!isset($_SESSION["userUId"])) {
     header("location: login.php");
     exit();
 }
@@ -34,7 +34,7 @@ include_once 'header.php';
         } else {
 
             // Bind the user ID parameter
-            mysqli_stmt_bind_param($stmt, "s", $useruid);
+            mysqli_stmt_bind_param($stmt, "s", $userId);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
